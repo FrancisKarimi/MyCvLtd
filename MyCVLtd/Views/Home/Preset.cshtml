@@ -1,0 +1,37 @@
+﻿@model MyCVLtd.Models.Member
+@{
+    ViewBag.Title = "Preset";
+    Layout = "~/Views/Shared/_innerLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+
+        @using (Html.BeginForm("Preset", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+                <div class="form-group">
+                    @if (ViewBag.error != null){<p class="alert alert-danger" id="presetError">@ViewBag.error  </p>}
+                    <p>Enter your email below to receive password reset code.</p>
+                    <div class="editor-field">
+                        @Html.TextBox("email", "", new { @class = "form-control", placeholder = "Enter Email", required = "required" })
+                        @*@Html.ValidationMessageFor(model => model.E_Mail)*@
+                    </div>
+                </div>
+
+
+                <p>
+
+                    <input name="btnReset" type="submit" class="btn btn-success" value="Reset" />
+
+                </p>
+            </fieldset>
+        }
+
+    </div>
+</div>

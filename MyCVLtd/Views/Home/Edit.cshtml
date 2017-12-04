@@ -1,0 +1,132 @@
+﻿@model MyCVLtd.Models.Member
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Member</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Member_No)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Member_No)
+            @Html.ValidationMessageFor(model => model.Member_No)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.First_Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.First_Name)
+            @Html.ValidationMessageFor(model => model.First_Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Last_Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Last_Name)
+            @Html.ValidationMessageFor(model => model.Last_Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ID_Number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ID_Number)
+            @Html.ValidationMessageFor(model => model.ID_Number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Phone_Number)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone_Number)
+            @Html.ValidationMessageFor(model => model.Phone_Number)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E_Mail)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.E_Mail)
+            @Html.ValidationMessageFor(model => model.E_Mail)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date_of_Birth)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date_of_Birth)
+            @Html.ValidationMessageFor(model => model.Date_of_Birth)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Member_Type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Member_Type)
+            @Html.ValidationMessageFor(model => model.Member_Type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Physical_Location)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Physical_Location)
+            @Html.ValidationMessageFor(model => model.Physical_Location)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.profession)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.profession)
+            @Html.ValidationMessageFor(model => model.profession)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.verified)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.verified)
+            @Html.ValidationMessageFor(model => model.verified)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.activation_code)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.activation_code)
+            @Html.ValidationMessageFor(model => model.activation_code)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

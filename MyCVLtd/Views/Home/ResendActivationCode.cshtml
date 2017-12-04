@@ -1,0 +1,38 @@
+﻿
+@model MyCVLtd.Models.Member
+@{
+    ViewBag.Title = "Resend Activation Code";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend> @if(ViewBag.message !=null) {<p class="alert alert-danger" id="resendActivationCodeMessage">@ViewBag.message  </p>}</legend>
+                <div class="form-group">
+                    <p>Enter your email address</p>
+                    <div class="editor-field">
+                        @Html.TextBox("resendActivationCode", "", new { @class = "form-control", placeholder = "Enter Email", required = "required" })
+                    </div>
+                </div>
+
+
+                <p>
+
+                    <input name="btnResend" type="submit" class="btn btn-success" value="Request" />
+
+                </p>
+            </fieldset>
+        }
+
+    </div>
+</div>
+
+

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<MyCVLtd.Models.Member>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Member_No)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Last_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.E_Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_of_Birth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Member_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Physical_Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.profession)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.verified)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Activation_Code)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member_No)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.First_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Last_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ID_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone_Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_Mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_of_Birth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Member_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Physical_Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.profession)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.verified)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activation_Code)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

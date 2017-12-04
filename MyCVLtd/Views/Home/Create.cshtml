@@ -1,0 +1,135 @@
+﻿@model MyCVLtd.Models.Member
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <p>Why Am I not been seen???</p>
+            <div class="col-md-7">
+    
+    <img src="/Content/images/cinqueterre.jpg" class="img-rounded" alt="Cinque Terre" width="404" height="436">
+    </div>
+            <p>Image Placeholder</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Registration</h2>
+            @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+
+                @*<div class="form-group hidden">
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Member_No)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Member_No)
+                        @Html.ValidationMessageFor(model => model.Member_No)
+                    </div>
+                </div>*@
+                <div class="row">
+           <div class="col">
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.Label("First Name")
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBox("fName","", new {@class="form-control", placeholder="Enter first Name", required="required"})
+                        @Html.ValidationMessageFor(model => model.First_Name )
+                    </div>
+                </div>
+               </div>
+               <div class="col">
+                <div class="form-group">
+                    <div class="editor-label">
+
+                        @Html.Label("Last Name")
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBox("lName","", new { @class="form-control", placeholder="Enter last Name", required="required"})
+                        @Html.ValidationMessageFor(model => model.Last_Name)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="editor-label">
+
+                        @Html.Label("Phone Number")
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBox("PhoneNumber","", new { @class="form-control", placeholder="254*********", required="required"})
+                        @Html.ValidationMessageFor(model => model.Last_Name)
+                    </div>
+                </div>
+
+                <div class="row">
+           <div class="col">
+                <div class="form-group">
+                        <div class="editor-label">
+                            @Html.Label("E-mail")
+                        </div>
+                        <div class="editor-field">
+                            @Html.TextBox("email","", new { @class="form-control", placeholder="someone@example.com", required="required"})
+                            @Html.ValidationMessageFor(model => model.E_Mail)
+                        </div>
+                </div>
+               </div>
+                
+                    </div>
+                <div class="row">
+           <div class="col">
+                 <div class="form-group">
+                        <div class="editor-label">
+                            @Html.LabelFor(m=>m.password)
+                        </div>
+                        <div class="editor-field">
+                            @Html.PasswordFor(m=>m.password)
+                            @Html.ValidationMessageFor(model => model.password)
+                        </div>
+                </div>
+               </div>
+                 @*<div class="col">
+                 <div class="form-group">
+                        <div class="editor-label">
+                            @Html.LabelFor(m=>m.passwordCon)
+                        </div>
+                        <div class="editor-field">
+                            @Html.PasswordFor(m=>m.passwordCon)
+                            @Html.ValidationMessageFor(model => model.passwordCon)
+                        </div>
+                </div>
+               </div>*@
+                    </div>
+                <div class="row">
+                    <div class="col">
+                <div class="form-group">
+                    <div class="editor-label">
+                        @Html.Label("Date of Birth")
+                    </div>
+                    <div class="editor-field">
+                        @Html.TextBox("DoB","", new { @class="form-control", placeholder="Enter Date of Birth", type="date", required="required"})
+                        @Html.ValidationMessageFor(model => model.Date_of_Birth)
+                    </div>
+                </div>
+               </div>
+                </div>
+                               
+
+                <p>
+                    <input name="btnRegister" type="submit" class="btn btn-success" value="Register" />
+                </p>
+            </fieldset>
+        }
+        <div class="col-md-1"></div>
+    </div>
+</div>
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

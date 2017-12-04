@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyCVLimitedModelStoreContainer" CdmEntityContainer="MyCVLimitedEntities">
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Company">
+        <MappingFragment StoreEntitySet="Companies">
+          <ScalarProperty Name="Company_ID" ColumnName="Company ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Verification_Code" ColumnName="Verification Code" />
+          <ScalarProperty Name="Verification_Status" ColumnName="Verification Status" />
+          <ScalarProperty Name="Registration_Date" ColumnName="Registration Date" />
+          <ScalarProperty Name="Registration_time" ColumnName="Registration time" />
+          <ScalarProperty Name="Registration_ID" ColumnName="Registration ID" />
+          <ScalarProperty Name="Member_No" ColumnName="Member No" />
+          <ScalarProperty Name="Job_ID" ColumnName="Job ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EducationalBackgrounds">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.EducationalBackground">
+        <MappingFragment StoreEntitySet="EducationalBackground">
+          <ScalarProperty Name="Education_ID" ColumnName="Education ID" />
+          <ScalarProperty Name="Member_ID" ColumnName="Member ID" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End Date" />
+          <ScalarProperty Name="Education_Level" ColumnName="Education Level" />
+          <ScalarProperty Name="certification" ColumnName="certification" />
+          <ScalarProperty Name="Institution" ColumnName="Institution" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hobbies">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.hobby">
+        <MappingFragment StoreEntitySet="hobbies">
+          <ScalarProperty Name="hobby_id" ColumnName="hobby_id" />
+          <ScalarProperty Name="member_no" ColumnName="member_no" />
+          <ScalarProperty Name="hobby_name" ColumnName="hobby_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Job">
+        <MappingFragment StoreEntitySet="Jobs">
+          <ScalarProperty Name="Job_ID" ColumnName="Job ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date_Posted" ColumnName="Date Posted" />
+          <ScalarProperty Name="Time_Posted" ColumnName="Time Posted" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="company_ID" ColumnName="company ID" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Likes" ColumnName="Likes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Member_Company">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Member_Company">
+        <MappingFragment StoreEntitySet="Member_Company">
+          <ScalarProperty Name="Link_ID" ColumnName="Link ID" />
+          <ScalarProperty Name="Member_No" ColumnName="Member No" />
+          <ScalarProperty Name="Company_ID" ColumnName="Company ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="Member_No" ColumnName="Member No" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="ID_Number" ColumnName="ID Number" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+          <ScalarProperty Name="E_Mail" ColumnName="E-Mail" />
+          <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+          <ScalarProperty Name="Member_Type" ColumnName="Member Type" />
+          <ScalarProperty Name="Physical_Location" ColumnName="Physical Location" />
+          <ScalarProperty Name="profession" ColumnName="profession" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="verified" ColumnName="verified" />
+          <ScalarProperty Name="Activation_Code" ColumnName="Activation Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="Message_ID" ColumnName="Message ID" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Recipient" ColumnName="Recipient" />
+          <ScalarProperty Name="Message_Text" ColumnName="Message Text" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Message_Status" ColumnName="Message Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="Notification_ID" ColumnName="Notification ID" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Recipient" ColumnName="Recipient" />
+          <ScalarProperty Name="Notification_Body" ColumnName="Notification Body" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhotoAlbums">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.PhotoAlbum">
+        <MappingFragment StoreEntitySet="PhotoAlbums">
+          <ScalarProperty Name="PictureDescription" ColumnName="PictureDescription" />
+          <ScalarProperty Name="member_No" ColumnName="member No" />
+          <ScalarProperty Name="Company_ID" ColumnName="Company ID" />
+          <ScalarProperty Name="Album_Name" ColumnName="Album Name" />
+          <ScalarProperty Name="Upload_Date" ColumnName="Upload Date" />
+          <ScalarProperty Name="Upload_Time" ColumnName="Upload Time" />
+          <ScalarProperty Name="pictureID" ColumnName="pictureID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="Post_ID" ColumnName="Post ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Posted_By" ColumnName="Posted By" />
+          <ScalarProperty Name="Edited" ColumnName="Edited" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="professions">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.profession">
+        <MappingFragment StoreEntitySet="profession">
+          <ScalarProperty Name="profession_id" ColumnName="profession_id" />
+          <ScalarProperty Name="profession_name" ColumnName="profession_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="Staff_ID" ColumnName="Staff ID" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
+          <ScalarProperty Name="ID_Number" ColumnName="ID Number" />
+          <ScalarProperty Name="Residence" ColumnName="Residence" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
+          <ScalarProperty Name="Alternative_Phone_Number" ColumnName="Alternative Phone Number" />
+          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+          <ScalarProperty Name="super_Admin" ColumnName="super Admin" />
+          <ScalarProperty Name="Admin" ColumnName="Admin" />
+          <ScalarProperty Name="Manager" ColumnName="Manager" />
+          <ScalarProperty Name="Regular" ColumnName="Regular" />
+          <ScalarProperty Name="Intern" ColumnName="Intern" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="Transaction_ID" ColumnName="Transaction ID" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="Transaction_Date" ColumnName="Transaction Date" />
+          <ScalarProperty Name="Transaction_Time" ColumnName="Transaction Time" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkExperiences">
+      <EntityTypeMapping TypeName="MyCVLimitedModel.WorkExperience">
+        <MappingFragment StoreEntitySet="WorkExperience">
+          <ScalarProperty Name="Work_ID" ColumnName="Work ID" />
+          <ScalarProperty Name="Member_No" ColumnName="Member No" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start Date" />
+          <ScalarProperty Name="End_Date" ColumnName="End Date" />
+          <ScalarProperty Name="Job_Title" ColumnName="Job Title" />
+          <ScalarProperty Name="Job_Description" ColumnName="Job Description" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,38 @@
+﻿@model MyCVLtd.Models.Member
+@{
+    ViewBag.Title = "EnterCode";
+    Layout = "~/Views/Shared/_innerLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend>
+                    @if (ViewBag.message != null){<p class="alert alert-success" id="enterCode">@ViewBag.message  </p>}
+                    @if (ViewBag.error != null){<p class="alert alert-danger" id="enterCode">@ViewBag.error  </p>}
+                </legend>
+                <div class="form-group">
+                    <p>Enter security code.</p>
+                    <div class="editor-field">
+                        @Html.TextBox("code", "", new { @class = "form-control", placeholder = "Enter Code", required = "required" })
+                    </div>
+                </div>
+
+
+                <p>
+
+                    <input name="btnSecCode" type="submit" class="btn btn-success" value="Reset" />
+
+                </p>
+            </fieldset>
+        }
+
+    </div>
+</div>

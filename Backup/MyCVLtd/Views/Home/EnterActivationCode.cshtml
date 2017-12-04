@@ -1,0 +1,34 @@
+﻿@model MyCVLtd.Models.Member
+@{
+    ViewBag.Title = "EnterActivationCode";
+}
+
+<div class="container">
+    <div class="row">
+       
+        
+            @using (Html.BeginForm("EnterActivationCode", "Home", FormMethod.Post)) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+                <div class="form-group">
+                       <p>Enter activation code.</p>
+                        <div class="editor-field">
+                            @Html.TextBox("activationCode","", new { @class="form-control", placeholder="Enter Code", required="required"})
+                            @*@Html.ValidationMessageFor(model => model.E_Mail)*@
+                        </div>
+                </div>
+                      
+
+                <p>
+
+                    <input name="btnReset" type="submit" class="btn btn-success" value="Submit" />
+
+                </p>
+            </fieldset>
+            }
+       
+</div>
+    </div>

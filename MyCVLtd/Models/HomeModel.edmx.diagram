@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5d77c792e884474d8ea030a023104a99" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="MyCVLimitedModel.Company" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.EducationalBackground" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.hobby" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.Job" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.Member_Company" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.Member" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.Message" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.Notification" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.PhotoAlbum" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.Post" Width="1.5" PointX="7.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.profession" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.Staff" Width="1.5" PointX="8.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.sysdiagram" Width="1.5" PointX="5.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.Transaction" Width="1.5" PointX="3" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyCVLimitedModel.WorkExperience" Width="1.5" PointX="3" PointY="24" IsExpanded="true" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Jobs__company_ID__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Member_Co__Compa__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Education__Membe__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__hobbies__member___71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Member_Co__Membe__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Messages__Recipi__1DB06A4F" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Messages__Sender__1EA48E88" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Notificat__Recip__22751F6C" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Notificat__Sende__2180FB33" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__Transacti__Sourc__29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="MyCVLimitedModel.FK__WorkExper__Membe__2BFE89A6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

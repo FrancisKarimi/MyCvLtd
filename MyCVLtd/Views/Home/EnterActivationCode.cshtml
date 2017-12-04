@@ -1,0 +1,84 @@
+﻿@model MyCVLtd.Models.Member
+@{
+    ViewBag.Title = "EnterActivationCode";
+}
+
+<div class="container">
+    <div class="row">
+
+
+        @using (Html.BeginForm("EnterActivationCode", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+                <div class="form-group">
+
+                    @*<p class="alert alert-success" id="successMessage">Registration successful. Please check your mail and enter the activation code.</p>*@
+                    @if (ViewBag.message != null)
+                    {
+                        @* script to set timer  *@
+                        <script>
+                            var dt = '@ViewBag.EndDate';
+                            var dateAr = dt.split('-');
+                            var newDate = dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2];
+
+                            var end = new Date(dateAr[1] + '/' + dateAr[0] + '/' + dateAr[2]);
+
+                            var _second = 1000;
+                            var _minute = _second * 60;
+                            var _hour = _minute * 60;
+                            var _day = _hour * 24;
+                            var timer;
+
+                            function showRemaining() {
+                                var now = new Date();
+                                var distance = end - now;
+                                if (distance < 0) {
+                                    clearInterval(timer);
+                                    document.getElementById('countdown').innerHTML = 'EXPIRED!';
+                                    window.location.href = 'ResendActivationCode';
+
+                                    return;
+                                }
+                                var days = Math.floor(distance / _day);
+                                var hours = Math.floor((distance % _day) / _hour);
+                                var minutes = Math.floor((distance % _hour) / _minute);
+                                var seconds = Math.floor((distance % _minute) / _second);
+
+                                //document.getElementById('countdown').innerHTML = days + 'days ';
+                                document.getElementById('countdown').innerHTML = hours + 'hrs ';
+                                document.getElementById('countdown').innerHTML += minutes + 'mins ';
+                                document.getElementById('countdown').innerHTML += seconds + 'secs';
+                            }
+
+                            timer = setInterval(showRemaining, 1000);
+                        </script>
+
+                        <p class="alert alert-success" id="successMessage">@ViewBag.message   </p>
+                        <div class="float-left">
+                            <h2 id="countdown"></h2>
+                        </div>
+
+
+                    }
+                    <p>Enter activation code.</p>
+                    <div class="editor-field">
+                        @Html.TextBox("activationCode", "", new { @class = "form-control", placeholder = "Enter Code", required = "required" })
+                        @*@Html.ValidationMessageFor(model => model.E_Mail)*@
+                    </div>
+                </div>
+
+
+                <p>
+
+                    <input name="btnReset" type="submit" class="btn btn-success" value="Submit" />
+
+                </p>
+            </fieldset>
+        }
+
+    </div>
+</div>

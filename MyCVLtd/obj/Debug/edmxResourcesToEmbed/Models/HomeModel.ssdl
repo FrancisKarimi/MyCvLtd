@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyCVLimitedModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MyCVLimitedModelStoreContainer">
+    <EntitySet Name="Companies" EntityType="MyCVLimitedModel.Store.Companies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EducationalBackground" EntityType="MyCVLimitedModel.Store.EducationalBackground" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="hobbies" EntityType="MyCVLimitedModel.Store.hobbies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Jobs" EntityType="MyCVLimitedModel.Store.Jobs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Member_Company" EntityType="MyCVLimitedModel.Store.Member_Company" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Members" EntityType="MyCVLimitedModel.Store.Members" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Messages" EntityType="MyCVLimitedModel.Store.Messages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Notifications" EntityType="MyCVLimitedModel.Store.Notifications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PhotoAlbums" EntityType="MyCVLimitedModel.Store.PhotoAlbums" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Posts" EntityType="MyCVLimitedModel.Store.Posts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="profession" EntityType="MyCVLimitedModel.Store.profession" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Staff" EntityType="MyCVLimitedModel.Store.Staff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="MyCVLimitedModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Transactions" EntityType="MyCVLimitedModel.Store.Transactions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WorkExperience" EntityType="MyCVLimitedModel.Store.WorkExperience" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__Education__Membe__01142BA1" Association="MyCVLimitedModel.Store.FK__Education__Membe__01142BA1">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="EducationalBackground" EntitySet="EducationalBackground" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hobbies__member___71D1E811" Association="MyCVLimitedModel.Store.FK__hobbies__member___71D1E811">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="hobbies" EntitySet="hobbies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Jobs__company ID__04E4BC85" Association="MyCVLimitedModel.Store.FK__Jobs__company ID__04E4BC85">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Member_Co__Compa__73BA3083" Association="MyCVLimitedModel.Store.FK__Member_Co__Compa__73BA3083">
+      <End Role="Companies" EntitySet="Companies" />
+      <End Role="Member_Company" EntitySet="Member_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Member_Co__Membe__7E37BEF6" Association="MyCVLimitedModel.Store.FK__Member_Co__Membe__7E37BEF6">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Member_Company" EntitySet="Member_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Messages__Recipi__1DB06A4F" Association="MyCVLimitedModel.Store.FK__Messages__Recipi__1DB06A4F">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Messages__Sender__1EA48E88" Association="MyCVLimitedModel.Store.FK__Messages__Sender__1EA48E88">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__Recip__22751F6C" Association="MyCVLimitedModel.Store.FK__Notificat__Recip__22751F6C">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__Sende__2180FB33" Association="MyCVLimitedModel.Store.FK__Notificat__Sende__2180FB33">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Transacti__Sourc__29221CFB" Association="MyCVLimitedModel.Store.FK__Transacti__Sourc__29221CFB">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Transactions" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkExper__Membe__2BFE89A6" Association="MyCVLimitedModel.Store.FK__WorkExper__Membe__2BFE89A6">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="WorkExperience" EntitySet="WorkExperience" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Companies">
+    <Key>
+      <PropertyRef Name="Company ID" />
+    </Key>
+    <Property Name="Company ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="text" />
+    <Property Name="Location" Type="text" />
+    <Property Name="Verification Code" Type="text" />
+    <Property Name="Verification Status" Type="bit" />
+    <Property Name="Registration Date" Type="date" />
+    <Property Name="Registration time" Type="time" />
+    <Property Name="Registration ID" Type="int" />
+    <Property Name="Member No" Type="int" />
+    <Property Name="Job ID" Type="int" />
+  </EntityType>
+  <EntityType Name="EducationalBackground">
+    <Key>
+      <PropertyRef Name="Education ID" />
+    </Key>
+    <Property Name="Education ID" Type="int" Nullable="false" />
+    <Property Name="Member ID" Type="int" Nullable="false" />
+    <Property Name="Start Date" Type="date" Nullable="false" />
+    <Property Name="End Date" Type="date" />
+    <Property Name="Education Level" Type="varchar" MaxLength="100" />
+    <Property Name="certification" Type="varchar" MaxLength="50" />
+    <Property Name="Institution" Type="varchar" MaxLength="100" />
+    <Property Name="Grade" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="hobbies">
+    <Key>
+      <PropertyRef Name="hobby_id" />
+    </Key>
+    <Property Name="hobby_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="member_no" Type="int" />
+    <Property Name="hobby_name" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="Job ID" />
+    </Key>
+    <Property Name="Job ID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Date Posted" Type="date" Nullable="false" />
+    <Property Name="Time Posted" Type="date" />
+    <Property Name="Description" Type="text" />
+    <Property Name="company ID" Type="int" Nullable="false" />
+    <Property Name="Comments" Type="text" />
+    <Property Name="Likes" Type="int" />
+  </EntityType>
+  <EntityType Name="Member_Company">
+    <Key>
+      <PropertyRef Name="Link ID" />
+    </Key>
+    <Property Name="Link ID" Type="int" Nullable="false" />
+    <Property Name="Member No" Type="int" />
+    <Property Name="Company ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="Member No" />
+    </Key>
+    <Property Name="Member No" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="First Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Last Name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ID Number" Type="varchar" MaxLength="20" />
+    <Property Name="Phone Number" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="E-Mail" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="Date of Birth" Type="date" Nullable="false" />
+    <Property Name="Member Type" Type="varchar" MaxLength="50" />
+    <Property Name="Physical Location" Type="varchar" MaxLength="50" />
+    <Property Name="profession" Type="varchar" MaxLength="150" />
+    <Property Name="password" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="verified" Type="bit" Nullable="false" />
+    <Property Name="Activation Code" Type="varchar" Nullable="false" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="Message ID" />
+    </Key>
+    <Property Name="Message ID" Type="int" Nullable="false" />
+    <Property Name="Sender" Type="int" />
+    <Property Name="Recipient" Type="int" />
+    <Property Name="Message Text" Type="text" />
+    <Property Name="Subject" Type="varchar" MaxLength="100" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Time" Type="time" />
+    <Property Name="Message Status" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="Notification ID" />
+    </Key>
+    <Property Name="Notification ID" Type="int" Nullable="false" />
+    <Property Name="Sender" Type="int" Nullable="false" />
+    <Property Name="Recipient" Type="int" Nullable="false" />
+    <Property Name="Notification Body" Type="text" />
+    <Property Name="Time" Type="time" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="PhotoAlbums">
+    <Key>
+      <PropertyRef Name="pictureID" />
+    </Key>
+    <Property Name="PictureDescription" Type="varchar" MaxLength="100" />
+    <Property Name="member No" Type="int" />
+    <Property Name="Company ID" Type="int" />
+    <Property Name="Album Name" Type="varchar" MaxLength="50" />
+    <Property Name="Upload Date" Type="date" />
+    <Property Name="Upload Time" Type="time" />
+    <Property Name="pictureID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="Post ID" />
+    </Key>
+    <Property Name="Post ID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Content" Type="text" />
+    <Property Name="Picture" Type="varchar" MaxLength="50" />
+    <Property Name="Posted By" Type="varchar" MaxLength="50" />
+    <Property Name="Edited" Type="bit" />
+  </EntityType>
+  <EntityType Name="profession">
+    <Key>
+      <PropertyRef Name="profession_id" />
+    </Key>
+    <Property Name="profession_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="profession_name" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="Staff ID" />
+    </Key>
+    <Property Name="Staff ID" Type="int" Nullable="false" />
+    <Property Name="First Name" Type="varchar" MaxLength="50" />
+    <Property Name="Last Name" Type="varchar" MaxLength="50" />
+    <Property Name="Position" Type="varchar" MaxLength="100" />
+    <Property Name="Date of Birth" Type="date" />
+    <Property Name="ID Number" Type="varchar" MaxLength="20" />
+    <Property Name="Residence" Type="varchar" MaxLength="50" />
+    <Property Name="Phone Number" Type="varchar" MaxLength="50" />
+    <Property Name="Alternative Phone Number" Type="varchar" MaxLength="50" />
+    <Property Name="E-mail" Type="varchar" MaxLength="50" />
+    <Property Name="super Admin" Type="bit" />
+    <Property Name="Admin" Type="bit" />
+    <Property Name="Manager" Type="bit" />
+    <Property Name="Regular" Type="bit" />
+    <Property Name="Intern" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="Transaction ID" />
+    </Key>
+    <Property Name="Transaction ID" Type="int" Nullable="false" />
+    <Property Name="Purpose" Type="text" />
+    <Property Name="Source" Type="int" />
+    <Property Name="Transaction Date" Type="date" />
+    <Property Name="Transaction Time" Type="time" />
+    <Property Name="Amount" Type="decimal" />
+  </EntityType>
+  <EntityType Name="WorkExperience">
+    <Key>
+      <PropertyRef Name="Work ID" />
+    </Key>
+    <Property Name="Work ID" Type="int" Nullable="false" />
+    <Property Name="Member No" Type="int" />
+    <Property Name="Start Date" Type="date" />
+    <Property Name="End Date" Type="date" />
+    <Property Name="Job Title" Type="varchar" MaxLength="50" />
+    <Property Name="Job Description" Type="text" />
+    <Property Name="Company" Type="text" />
+  </EntityType>
+  <Association Name="FK__Education__Membe__01142BA1">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="1" />
+    <End Role="EducationalBackground" Type="MyCVLimitedModel.Store.EducationalBackground" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="EducationalBackground">
+        <PropertyRef Name="Member ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hobbies__member___71D1E811">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="0..1" />
+    <End Role="hobbies" Type="MyCVLimitedModel.Store.hobbies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="hobbies">
+        <PropertyRef Name="member_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Jobs__company ID__04E4BC85">
+    <End Role="Companies" Type="MyCVLimitedModel.Store.Companies" Multiplicity="1" />
+    <End Role="Jobs" Type="MyCVLimitedModel.Store.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Company ID" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="company ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Member_Co__Compa__73BA3083">
+    <End Role="Companies" Type="MyCVLimitedModel.Store.Companies" Multiplicity="0..1" />
+    <End Role="Member_Company" Type="MyCVLimitedModel.Store.Member_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Companies">
+        <PropertyRef Name="Company ID" />
+      </Principal>
+      <Dependent Role="Member_Company">
+        <PropertyRef Name="Company ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Member_Co__Membe__7E37BEF6">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="0..1" />
+    <End Role="Member_Company" Type="MyCVLimitedModel.Store.Member_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="Member_Company">
+        <PropertyRef Name="Member No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Messages__Recipi__1DB06A4F">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="0..1" />
+    <End Role="Messages" Type="MyCVLimitedModel.Store.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="Recipient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Messages__Sender__1EA48E88">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="0..1" />
+    <End Role="Messages" Type="MyCVLimitedModel.Store.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="Sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__Recip__22751F6C">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="1" />
+    <End Role="Notifications" Type="MyCVLimitedModel.Store.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="Recipient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__Sende__2180FB33">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="1" />
+    <End Role="Notifications" Type="MyCVLimitedModel.Store.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="Sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Transacti__Sourc__29221CFB">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="0..1" />
+    <End Role="Transactions" Type="MyCVLimitedModel.Store.Transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="Transactions">
+        <PropertyRef Name="Source" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkExper__Membe__2BFE89A6">
+    <End Role="Members" Type="MyCVLimitedModel.Store.Members" Multiplicity="0..1" />
+    <End Role="WorkExperience" Type="MyCVLimitedModel.Store.WorkExperience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="Member No" />
+      </Principal>
+      <Dependent Role="WorkExperience">
+        <PropertyRef Name="Member No" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

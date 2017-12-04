@@ -1,0 +1,33 @@
+﻿@model MyCVLtd.Models.Member
+@{
+    ViewBag.Title = "Npass";
+    Layout = "~/Views/Shared/_innerLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+       
+        
+            @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <legend></legend>
+                <div class="form-group">
+                    <p>Enter your new password</p>
+		
+				@Html.Password("password","", new{@class="form-control reg", placeholder="password" , required="required"})
+			</div>
+                      
+
+                <p>
+
+                    <input name="btnNewpass" type="submit" class="btn btn-success" value="ok" />
+
+                </p>
+            </fieldset>
+            }
+       
+</div>
+    </div>

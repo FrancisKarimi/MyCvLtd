@@ -1,0 +1,416 @@
+﻿@model IEnumerable<MyCVLtd.Models.Member>
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_innerLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row cover-photo"">
+        <div class="col-md-3">
+            <div class="pro-pic">
+                
+                @{
+                string profilePath = "Content/imgs/members/3-Dan/album/profiles/"; //change once Session["MemberNo"] is worked on
+                string picName = "current.jpg";
+                string fullPath = profilePath + picName;
+                
+                <img class="img member-profile" src="@fullPath" /> 
+             }
+                <button id="btnChangeProfile" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-edit"></span> Change Profile Picture
+                    </button>
+                <div class="overlay"></div>
+                    <!-- Trigger/Open The Modal -->
+                    
+                    <div id="changeProfileModal" class="modal">
+                <div class="modal-content">
+                        <span class="close">&times;</span>
+                        @Html.ActionLink("From Album", "Index", "", new { @class = "btn btn-primary" })
+                        <label class="btn btn-primary" id="btnUploadNew">Upload New</label>
+                </div>
+            </div>
+
+            <div id="UploadNewModal" class="modal">
+                <div class="modal-content">
+                        Upload New
+                        <input type="file" name="file" id="file1" />
+                </div>
+            </div>
+
+
+            <script>
+                var modal = document.getElementById('changeProfileModal');
+                var modal1 = document.getElementById('UploadNewModal');
+                var btn = document.getElementById("btnChangeProfile");
+                var span = document.getElementsByClassName("close")[0];
+                var btn1 = document.getElementById("btnUploadNew");
+                // When the user clicks on the button, open the modal 
+                btn.onclick = function () {
+                    modal.style.display = "block";
+                }
+
+                btn1.onclick = function () {
+                    modal1.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function (event) {
+                    if (event.target == modal || even.target == modal1) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="album">
+                <img class="img img-rounded" src="~/Content/imgs/members/profiles/alfonce.jpg" />
+                <div class="overlay">
+                    <div class="text">Change profile image</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 profile-text">
+            <h1>Alfonce Muthoka</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="album">
+            @{
+                try
+                {
+                    string pictureList = ViewBag.Album;
+                    string[] picArray;
+                    picArray = pictureList.Split('#');
+                    string path = "../Content/imgs/members/3-Dan/album/";//change once Session["MemberNo"] is worked on
+                    for (int n = 0; n < picArray.Length; n++)
+                    {
+                        string filename = picArray[n].ToString();
+                        if (!string.IsNullOrEmpty(filename))
+                        {
+                            string source = path + filename; 
+                                <div class="col-md-2">
+                                    <a href="#">
+
+                                        <img class="img album-thumbnail" src="@source"  alt="@source"/>
+                                    </a>
+                                </div>
+                            }
+                    }                   
+                }
+                catch (Exception ex)
+                {
+                    ex.Data.Clear();
+                }
+            }
+             @using (Html.BeginForm("Profile","Home",FormMethod.Post,new { enctype = "multipart/form-data" }))
+                    {   @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                                         
+                                    @*<label class="fileContainer btn btn-primary">*@
+                                        <label>Browse</label>
+                                        <input type="file" name="file" id="file" />
+                                        <img id="blah" src="#" alt="your image" style="width:350px" />
+                                    @*</label>*@
+                        
+                                    @Html.Label("Say something about this photo");
+                                    @Html.Editor("Description");
+                                    <input type="submit" value="Upload Photo" class="btn btn-primary" />  
+                                    
+                                    <br>
+                                    <label class="label-success"> @ViewBag.Message   </label>
+                    }
+             
+            
+
+        <script>
+            function readURL(input) {
+
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#blah').attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            $("#file").change(function () {
+                readURL(this);
+            });
+        </script>
+        </div>
+    </div>
+    
+    <div class="row">
+            <div class="col-md-4">
+                <div class="basic-info">
+                <div class="title-row">
+                    <h3>Basic profile information</h3>
+                </div>
+                <form>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Name:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" value="Alfonce Muthoka" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Phone number:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" value="0724237824" />
+                        </div>
+                    </div>
+                        
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Email:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" value="alfoncemuthoka@gmail.com" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Physical Adress:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" value="Nairobi Kahawa west" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Profession:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" value="0724237824" />
+                        </div>
+                    </div>
+                        
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                            <div class="col-md-6">
+                            <label>User Level:</label>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" value="Premium" />
+                        </div>
+                    </div>
+                </div>
+
+                </form>
+                </div>
+                <div class="title-row">
+                    <h3>Profession</h3>
+                </div>
+                <form  class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" value="Software Engineer" />
+                    <input type="submit" class="btn btn-control" value="Edit" />
+                    </div>
+                </form>
+                <div class="title-row">
+                    <h3>My hobbies</h3>
+                </div>
+                <table class="table table-responsive">
+                    <tr>
+                        <td>Swimming</td><td><a href="#">Edit</a>| <a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>Reading</td><td><a href="#">Edit</a>| <a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>Traveling</td><td><a href="#">Edit</a>| <a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>Eating</td><td><a href="#">Edit</a>| <a href="#">Delete</a></td>
+                    </tr>
+                    <tr>
+                        <td>New friends</td><td><a href="#">Edit</a>| <a href="#">Delete</a></td>
+                    </tr>
+                </table>
+                <form >
+                    <div class="form-group">
+                    <input type="submit" class="btn btn-control" value="Add New" />
+                    </div>
+                </form>
+                 <div class="title-row">
+                    <h3>My Status</h3>
+                </div>
+                <p>Am feeling lucky today <a href="#" class="btn-primary">Edit</a> | <a href="#" class="btn-primary">Delete</a> | <a href="#" class="btn-primary">New</a></p>
+                <div class="title-row">
+                    <h1 style="color:#fff;">Create Company Profile</h1>
+                    <a href="#" class="btn btn-primary btn-lg">Add My company</a>
+                </div>
+                <div class="advert-area">
+                    <h1>Advertise <br> here</h1>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Education Background</div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <td>School/Institute</td>
+                                        <td>Course</td>
+                                        <td>Start date</td>
+                                        <td>End date</td>
+                                        <td>Score</td>
+                                        <td>Action</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>JKUAT</td><td>Comp Science</td><td>2011</td><td>2014</td><td>second class upper</td>
+                                        <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>JKUAT</td><td>Comp Science</td><td>2011</td><td>2014</td><td>second class upper</td>
+                                        <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>JKUAT</td><td>Comp Science</td><td>2011</td><td>2014</td><td>second class upper</td>
+                                        <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <hr />
+                            <button type="submit" class="btn btn-primary btn-lg">Add education</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel-group">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Work Experience</div>
+                        <div class="panel-body">
+                            <h2>Software Developer</h2>
+                            <h3>Organization: MyCV Limited.</h3>
+                            <p><span>Responsibilities</span><br>Developing WorkSocial system where employees and employers could engage freely</p>
+                            <p>Start date: 01 01 2009</p>
+                            <p> End date: current position</p>
+                            <p><a href="#">Edit</a> | <a href="#">Delete</a></p>
+                            <hr />
+                            <h2>Software Developer</h2>
+                            <h3>Organization: MyCV Limited.</h3>
+                            <p><span>Responsibilities</span><br>Developing WorkSocial system where employees and employers could engage freely</p>
+                             <p><span>Achievement</span><br>Developing WorkSocial system where employees and employers could engage freely</p>
+                            <p>Start date: 01 01 2009</p>
+                            <p> End date: current position</p>
+                            <p><a href="#">Edit</a> | <a href="#">Delete</a></p>
+                            <hr />
+                            <h2>Software Developer</h2>
+                            <h3>Organization: MyCV Limited.</h3>
+                            <p><span>Responsibilities</span><br>Developing WorkSocial system where employees and employers could engage freely</p>
+                            <p>Start date: 01 01 2009</p>
+                            <p> End date: current position</p>
+                            <p><a href="#">Edit</a> | <a href="#">Delete</a></p>
+                            <hr />
+                            <button class="btn btn-lg btn-primary">Add Experience</button>
+
+                        </div>
+                    </div>
+                </div>
+                <form >
+                    <div class="form-group">
+                    <label>Write a cover letter</label>
+                    <textarea placeholder="enter your message here" class="form-control"></textarea>
+                    <input type="submit" class="btn btn-success" value="save" />
+                    </div>
+                </form>
+                <div class="advert-area">
+                    <h1>Advertise <br> here</h1>
+                </div>
+            </div>
+       
+    </div>
+    
+    @*<div class="title-row" style="margin-top:10px;">
+        <h3 >My work profile</h3>
+    </div>
+    <div class="row other-information">
+        
+        <div class="col-md-6">
+           <!-- Accordion -->
+    <div id="accordion" class="panel-group">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle" href="#collapse-One" data-parent="#accordion" data-toggle="collapse">
+                        Education Background
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse-One" class="accordion-body collapse in">
+                <div class="panel-body">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="accordion-toggle" href="#collapse-Three" data-parent="#accordion" data-toggle="collapse">
+                        Work Experience
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse-Three" class="accordion-body collapse">
+                <div class="panel-body">
+                    <div class="row">
+                        Work Experience goes here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Accordion --> 
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">My Status</div>
+                  <div class="panel-body">
+                       <h1>List of the statuses/posts</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>*@
+    
+ <div class="row">
+     <button class="btn btn-primary mycv-print">Print your CV</button>
+ </div>       
+</div>
+

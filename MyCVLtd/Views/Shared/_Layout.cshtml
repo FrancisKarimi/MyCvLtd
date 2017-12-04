@@ -1,0 +1,148 @@
+﻿@model MyCVLtd.Models.Member
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - MyCV Limited</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/form-wizard.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+            $("#accordion").accordion();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var $btnSets = $('#responsive'),
+            $btnLinks = $btnSets.find('a');
+
+            $btnLinks.click(function (e) {
+                e.preventDefault();
+                $(this).siblings('a.active').removeClass("active");
+                $(this).addClass("active");
+                var index = $(this).index();
+                $("div.user-menu>div.user-menu-content").removeClass("active");
+                $("div.user-menu>div.user-menu-content").eq(index).addClass("active");
+            });
+        });
+
+        $(document).ready(function () {
+            $("[rel='tooltip']").tooltip();
+
+            $('.view').hover(
+                function () {
+                    $(this).find('.caption').slideDown(250); //.fadeIn(250)
+                },
+                function () {
+                    $(this).find('.caption').slideUp(250); //.fadeOut(205)
+                }
+            );
+        })
+        function init() {
+            window.addEventListener('scroll', function (e) {
+                var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+                    shrinkOn = 300,
+                    header = document.querySelector("header");
+                if (distanceY > shrinkOn) {
+                    classie.add(header, "smaller");
+                } else {
+                    if (classie.has(header, "smaller")) {
+                        classie.remove(header, "smaller");
+                    }
+                }
+            });
+        }
+        window.onload = init();
+    </script>
+</head>
+<body>
+
+    <div id="wrapper">
+
+        <header>
+            <div class="container clearfix">
+                <div id="logo">
+                    <img src="~/Content/imgs/logo.png" alt="MyCV Limited" />
+                </div>
+                <nav class="form-inline" style="padding-top:15px;">
+
+                    @using (Html.BeginForm("Registration", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-group">
+                            <label style="color:#fff;">User sign in</label>
+
+
+                            @Html.TextBox("email2", "", new { @class = "form-control", placeholder = "Email/phone", required = "required" })
+                            @Html.ValidationMessageFor(model => model.E_Mail)
+
+
+
+                            @Html.Password("password2", "", new { @class = "form-control reg", placeholder = "password", required = "required" })
+
+
+
+                            <input name="btnLogin" type="submit" class="btn btn-primary" value="Login" />
+
+                        </div>
+                    }
+
+                </nav>
+                <div class="forgot-login">
+                    <a href="@Url.Action("Preset","Home")">Forgot Password?</a>
+                </div>
+            </div>
+        </header><!-- /header -->
+
+        <div id="main">
+            <div id="content">
+
+                @RenderSection("featured", required: false)
+
+                <section class="content-wrapper main-content">
+                    @RenderBody()
+                </section>
+
+            </div>
+        </div><!-- #main -->
+        <footer>
+            <div id="info-bar">
+                <div class="container clearfix">
+                    <div class="row">
+                        <div class="col">
+                            <p>&copy; @DateTime.Now.Year - MyCV Limited.</p>
+                        </div>
+                        <div class="col">
+                            @Html.ActionLink("Terms and policy", "Terms", "Home", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-secondary", type = "button" })
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div><!-- /#top-bar -->
+        </footer><!-- /footer -->
+
+
+
+    </div><!-- /#wrapper -->
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+   
+
+</body>
+
+</html>
+
